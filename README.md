@@ -38,8 +38,10 @@ Publish the website in the LocalHost.
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Money and The Power - Book Cover</title>
+    <title>Money and the Power - Bharani Kumar S</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Roboto:wght@300;400&display=swap');
+
         * {
             margin: 0;
             padding: 0;
@@ -47,224 +49,116 @@ Publish the website in the LocalHost.
         }
 
         body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0b0b0b;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: url('https://images.unsplash.com/photo-1561414927-6d86591d0c4f?auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
             display: flex;
-            justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-            font-family: 'Georgia', serif;
+            justify-content: center;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        .content {
+            position: relative;
+            text-align: center;
+            max-width: 700px;
             padding: 20px;
         }
 
-        .book-cover {
-            width: 400px;
-            height: 600px;
-            background: linear-gradient(135deg, #0a0a0a 0%, #1a4d2e 30%, #2d5f3f 60%, #d4af37 100%);
-            position: relative;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8),
-                        inset 0 0 100px rgba(212, 175, 55, 0.1);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: transform 0.5s ease;
-        }
-
-        .book-cover:hover {
-            transform: scale(1.02) rotateY(5deg);
-        }
-
-        /* Decorative patterns */
-        .pattern {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0.1;
-            background-image: 
-                repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(212, 175, 55, 0.3) 10px, rgba(212, 175, 55, 0.3) 20px);
-        }
-
-        /* Animated gold particles */
-        .particles {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .particle {
-            position: absolute;
-            background: radial-gradient(circle, #d4af37 0%, transparent 70%);
-            border-radius: 50%;
-            animation: float 6s infinite ease-in-out;
-        }
-
-        .particle:nth-child(1) { width: 4px; height: 4px; left: 20%; animation-delay: 0s; }
-        .particle:nth-child(2) { width: 6px; height: 6px; left: 50%; animation-delay: 1s; }
-        .particle:nth-child(3) { width: 3px; height: 3px; left: 80%; animation-delay: 2s; }
-        .particle:nth-child(4) { width: 5px; height: 5px; left: 35%; animation-delay: 3s; }
-        .particle:nth-child(5) { width: 4px; height: 4px; left: 65%; animation-delay: 4s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(600px) translateX(0); opacity: 0; }
-            10% { opacity: 1; }
-            90% { opacity: 1; }
-            100% { transform: translateY(-100px) translateX(50px); opacity: 0; }
-        }
-
-        /* Title styling */
-        .title-container {
-            position: absolute;
-            top: 80px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            padding: 0 30px;
-            z-index: 10;
-        }
-
-        .title {
-            font-size: 52px;
-            font-weight: bold;
-            color: #d4af37;
+        .content h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: #d4af37; /* gold tone */
             text-transform: uppercase;
-            letter-spacing: 4px;
-            text-shadow: 
-                0 0 20px rgba(212, 175, 55, 0.8),
-                0 0 40px rgba(212, 175, 55, 0.5),
-                3px 3px 10px rgba(0, 0, 0, 0.8);
-            line-height: 1.2;
-            animation: glow 3s ease-in-out infinite;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
         }
 
-        @keyframes glow {
-            0%, 100% { text-shadow: 0 0 20px rgba(212, 175, 55, 0.8), 0 0 40px rgba(212, 175, 55, 0.5), 3px 3px 10px rgba(0, 0, 0, 0.8); }
-            50% { text-shadow: 0 0 30px rgba(212, 175, 55, 1), 0 0 60px rgba(212, 175, 55, 0.7), 3px 3px 10px rgba(0, 0, 0, 0.8); }
-        }
-
-        .subtitle {
-            font-size: 16px;
-            color: #c0c0c0;
-            margin-top: 15px;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        }
-
-        /* Central decorative element */
-        .center-ornament {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 150px;
-            height: 150px;
-            border: 3px solid #d4af37;
-            border-radius: 50%;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5),
-                        inset 0 0 30px rgba(212, 175, 55, 0.3);
-            animation: pulse 4s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
-            50% { transform: translate(-50%, -50%) scale(1.1); opacity: 1; }
-        }
-
-        .center-ornament::before {
-            content: '$';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 72px;
-            color: #d4af37;
-            font-weight: bold;
-            text-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
-        }
-
-        /* Author section */
-        .author-section {
-            position: absolute;
-            bottom: 30px;
-            left: 30px;
-            z-index: 10;
+        .author {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
             display: flex;
-            flex-direction: column;
-            align-items: flex-start;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .author-image {
-            width: 100px;
-            height: 100px;
-            border-radius: 12px;
-            border: 3px solid #d4af37;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6),
-                        0 0 20px rgba(212, 175, 55, 0.4);
+        .author img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
             object-fit: cover;
-            transition: transform 0.3s ease;
-            background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+            border: 2px solid #f0c929;
         }
 
-        .author-image:hover {
+        .author span {
+            color: #f0c929;
+            font-weight: bold;
+        }
+
+        .tagline {
+            font-style: italic;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #d4af37, #f0c929);
+            color: #000;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, #f0c929, #ffd700);
             transform: scale(1.05);
         }
 
-        .author-name {
-            margin-top: 12px;
-            font-size: 14px;
-            color: #e0e0e0;
-            font-style: italic;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-        }
-
-        .written-by {
-            font-size: 12px;
-            color: #d4af37;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-        }
-
-        /* Shine effect */
-        .shine {
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
-            animation: shine 8s infinite;
-        }
-
-        @keyframes shine {
-            0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-            100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .content h1 {
+                font-size: 2.5rem;
+            }
+            .btn {
+                padding: 10px 25px;
+            }
+            .author img {
+                width: 40px;
+                height: 40px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="book-cover">
-        <div class="pattern"></div>
-        <div class="shine"></div>
-        
-        <div class="particles">
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-            <div class="particle"></div>
-        </div>
-
-        <div class="title-container">
-            <div class="title">MONEY<br>AND THE<br>POWER</div>
-            <div class="subtitle">Master Your Financial Destiny</div>
-        </div>
-
-        <div class="center-ornament"></div>
-
-        <div class="author-section">
-            <div class="written-by">Written by</div>
-            <img src="myphoto.jpg" alt="Shri Raama Krishanan J" class="author-image">
-            <div class="author-name">Shri Raama Krishanan J</div>
+    <div class="hero">
+        <div class="overlay"></div>
+        <div class="content">
+            <h1>Money and the Power</h1>
+            <p class="author">
+                <img src="myphoto.jpg" alt="Author photo">
+                by <span>Bharani Kumar S</span>
+            </p>
+            <p class="tagline">“Control the money, command the power.”</p>
+            <a href="#" class="btn">Explore More</a>
         </div>
     </div>
 </body>
